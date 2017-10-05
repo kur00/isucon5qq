@@ -1,0 +1,25 @@
+current directory: /Users/yuki-f/Development/isucon_5/isucon_5/webapp/ruby/vender/bundle/ruby/2.4.0/gems/raindrops-0.15.0/ext/raindrops
+/Users/yuki-f/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20170810-20307-1m3t0xp.rb extconf.rb
+checking for mmap() in sys/mman.h... yes
+checking for munmap() in sys/mman.h... yes
+checking for mremap() in sys/mman.h... no
+checking for linux/tcp.h... no
+checking for getpagesize() in unistd.h... yes
+checking for rb_thread_blocking_region()... no
+checking for rb_thread_io_blocking_region()... yes
+checking for GCC 4+ atomic builtins... yes
+creating Makefile
+
+current directory: /Users/yuki-f/Development/isucon_5/isucon_5/webapp/ruby/vender/bundle/ruby/2.4.0/gems/raindrops-0.15.0/ext/raindrops
+make "DESTDIR=" clean
+
+current directory: /Users/yuki-f/Development/isucon_5/isucon_5/webapp/ruby/vender/bundle/ruby/2.4.0/gems/raindrops-0.15.0/ext/raindrops
+make "DESTDIR="
+compiling linux_inet_diag.c
+compiling linux_tcp_info.c
+compiling raindrops.c
+linking shared-object raindrops_ext.bundle
+
+current directory: /Users/yuki-f/Development/isucon_5/isucon_5/webapp/ruby/vender/bundle/ruby/2.4.0/gems/raindrops-0.15.0/ext/raindrops
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 raindrops_ext.bundle ./.gem.20170810-20307-l7ygsv

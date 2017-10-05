@@ -1,0 +1,173 @@
+have_func: checking for rb_os_allocated_objects()... -------------------- no
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'rb_os_allocated_objects'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_os_allocated_objects; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_os_allocated_objects; return !p; }
+/* end */
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+Undefined symbols for architecture x86_64:
+  "_rb_os_allocated_objects", referenced from:
+      _t in conftest-69d56e.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void rb_os_allocated_objects();
+14: int t(void) { rb_os_allocated_objects(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_gc_stat()... -------------------- yes
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_gc_stat; return !p; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_profile_frames()... -------------------- yes
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'rb_profile_frames'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_profile_frames; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_profile_frames; return !p; }
+/* end */
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void rb_profile_frames();
+14: int t(void) { rb_profile_frames(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_tracepoint_new()... -------------------- yes
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+conftest.c:13:57: error: use of undeclared identifier 'rb_tracepoint_new'
+int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_tracepoint_new; return !p; }
+                                                        ^
+1 error generated.
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_tracepoint_new; return !p; }
+/* end */
+
+"clang -o conftest -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/x86_64-darwin16 -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0/ruby/backward -I/Users/yuki-f/.rbenv/versions/2.4.1/include/ruby-2.4.0 -I. -I/Users/yuki-f/.rbenv/versions/2.4.1/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib -L. -L/Users/yuki-f/.rbenv/versions/2.4.1/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: /*top*/
+ 4: extern int t(void);
+ 5: int main(int argc, char **argv)
+ 6: {
+ 7:   if (argc > 1000000) {
+ 8:     printf("%p", &t);
+ 9:   }
+10: 
+11:   return 0;
+12: }
+13: extern void rb_tracepoint_new();
+14: int t(void) { rb_tracepoint_new(); return 0; }
+/* end */
+
+--------------------
+
