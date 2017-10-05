@@ -84,7 +84,7 @@ SQL
       @user
     end
 
-    def   authenticated!
+    def authenticated!
       unless current_user
         redirect '/login'
       end
@@ -104,9 +104,19 @@ SQL
 
     def is_friend?(another_id)
       user_id = session[:user_id]
-      query = 'SELECT COUNT(1) AS cnt FROM relations WHERE (one = ? AND another = ?) OR (one = ? AND another = ?)'
-      cnt = db.xquery(query, user_id, another_id, another_id, user_id).first[:cnt]
-      cnt.to_i > 0 ? true : false
+      # query = 'SELECT COUNT(1) AS cnt FROM relations WHERE (one = ? AND another = ?) OR (one = ? AND another = ?)'
+      # cnt = db.xquery(query, user_id, another_id, another_id, user_id).first[:cnt]
+      # cnt.to_i > 0 ? true : false
+
+      #友達かどうかを判断するメソッドをつくればよい
+      friends_is ||= nil
+      friends_is = db.xquery('SELECT id FROM relations WHERE one = ? AND another = ?', user_id,another_id)
+      if friends_is != nil
+        return true
+      else
+        return false
+      end
+
     end
 
     def is_friend_account?(account_name)
