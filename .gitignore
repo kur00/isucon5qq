@@ -1,0 +1,8 @@
+#bundle はいらない
+.bundle
+
+#venderも
+.vender
+
+*cnf
+*conf

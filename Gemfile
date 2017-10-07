@@ -8,3 +8,4 @@ gem "erubis"
 gem "unicorn"
 gem "rack-lineprof", github: 'kainosnoema/rack-lineprof'
 gem 'rack-mini-profiler'
+gem 'sinatra-contrib'
