@@ -1,8 +1,8 @@
 #bundle はいらない
-.bundle
+.bundle/
 
 #venderも
-.vender
+.vender/
 
-*cnf
-*conf
+*.cnf
+*.conf
