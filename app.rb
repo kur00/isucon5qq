@@ -5,6 +5,7 @@ require 'tilt/erubis'
 require 'erubis'
 require 'rack-lineprof'
 require 'rack-mini-profiler'
+require 'sinatra/reloader'
 
 module Isucon5
   class AuthenticationError < StandardError; end
@@ -111,7 +112,7 @@ SQL
       #友達かどうかを判断するメソッドをつくればよい
       friends_is ||= nil
       friends_is = db.xquery('SELECT id FROM relations WHERE one = ? AND another = ?', user_id,another_id)
-      if friends_is != nil
+      if friends_is != nil || friends_is != false
         return true
       else
         return false
